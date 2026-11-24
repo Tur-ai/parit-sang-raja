@@ -1,0 +1,10 @@
+html,body{margin:0;height:100%;background:#07090c;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;font-family:Georgia,serif}
+#stage{position:fixed;inset:0}
+#stage canvas{display:block}
+#loading{position:fixed;inset:0;background:#0b0f0d;display:flex;align-items:center;justify-content:center;color:#f3e2b3;z-index:10;transition:opacity .5s}
+#loading.hide{opacity:0;pointer-events:none}
+#loading h1{font-size:clamp(28px,5vw,52px);margin:0 0 24px;letter-spacing:.04em;text-align:center}
+.track{width:min(70vw,420px);height:12px;border:2px solid #b98a3c;border-radius:8px;overflow:hidden}
+#bar{height:100%;width:0;background:linear-gradient(90deg,#d9a23f,#f6d77a);transition:width .15s}
+#msg{text-align:center;opacity:.8}
+.box{text-align:center}
