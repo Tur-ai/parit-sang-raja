@@ -3,7 +3,7 @@ const PIXI = window.PIXI;
 
 export const NAMES = { PS: 'Penjaga Situs', TA: 'Tetua Adat', SP: 'Sang Pemahat', RK: 'Rakyat', Narasi: null, Info: 'Petunjuk' };
 
-const BOX = { x: 90, y: 492, w: 1100, h: 212 };
+const BOX = { x: 90, y: 390, w: 1100, h: 240 };
 const FS = 27;
 
 // Kotak dialog [G13], nama pembicara, efek ketik, panah ketuk [G14], S6 tiap ketukan lanjut.
@@ -28,7 +28,7 @@ export class DialogSystem {
     this.c.addChild(this.plaque);
 
     this.text = txt('', { size: FS, fill: 0x3b2512 });
-    this.text.position.set(BOX.x + 62, BOX.y + 40);
+    this.text.position.set(BOX.x + 92, BOX.y + 68);
     this.c.addChild(this.text);
 
     this.arrow = R.animator('G14', { fps: 5, anchor: [0.5, 0.5], height: 44 });
@@ -67,7 +67,7 @@ export class DialogSystem {
     this.plaque.visible = !!name;
     this.nameText.text = name || '';
     this.text.style.fontStyle = narr ? 'italic' : 'normal';
-    this.lines = this.wrap(text, BOX.w - 130, narr);
+    this.lines = this.wrap(text, BOX.w - 190, narr);
     this.full = this.lines.join('\n');
     this.shown = 0; this.text.text = ''; this.state = 'typing'; this.arrow.visible = false;
     this.startedAt = performance.now();
@@ -90,7 +90,7 @@ export class DialogSystem {
   choose(options) {
     return new Promise(resolve => {
       this.choiceLayer.removeChildren();
-      const n = options.length, gap = 112, y0 = 418 - (n - 1) * gap;
+      const n = options.length, gap = 112, y0 = 390 - (n - 1) * gap;
       options.forEach((o, i) => {
         const b = plaqueButton(this.game, o.label, { w: 860, h: 100, size: 25, icon: o.gid, onClick: () => {
           for (const c of this.choiceLayer.removeChildren()) c.destroy({ children: true });
